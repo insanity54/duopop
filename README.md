@@ -1,6 +1,6 @@
 # Duopop Game Show popper mod
 
-Modify a DUO pop to work with a PC (MacOS, Linux, Windows)
+Modify a DUO pop to work with a PC (MacOS, Linux, Windows.) The mod uses an Adafruit PRO Trinket (5V 16MHz) embedded in the DUOPOP receiver box. The DUOPOP logic board is replaced by the Trinket. Batteries are no longer required in the receiver, and the Trinket makes use of the DUOPOP IR receivers. The Trinket interfaces with a computer via USB cable, and when it receives IR patterns from the DUOPOP buzzers, an emulated keyboard press is sent to the PC. The keyboard presses are meant to be interpreted by software such as Game Show Presenter or similar.   
 
 Based on the Adafruit guide https://learn.adafruit.com/wireless-game-show-poppers/introduction
 
@@ -13,7 +13,10 @@ Based on the Adafruit guide https://learn.adafruit.com/wireless-game-show-popper
 
 #### Jumper settings
 
-The poppers (buzzers) all share the same pcb, but they have jumper settings to assumedly change the flash pattern of the IR LED. Further testing is needed to prove this theory. It would be interesting to see if new patterns could be achieved, to enable games for more than 4 players.
+![The top of the DUOPOPPER PCB contains five jumper traces. ](popper.png?raw=true "Duo POP buzzer PCB")
+
+The poppers (buzzers) all share the same PCB, but they have solderable jumpers which change the flash pattern of the IR LED. Jumpers 1 through 4 seem to control the IR pattern emitted. Jumper 5's function is unknown. New IR flash patterns can be achieved by changing jumpers 1 through 4, to enable games with more than 4 buzzers. Below are the jumper settings and IR flash patterns which have been tested. The IR flash patterns are discovered using Adafruit's [Using An IR Sensor](https://learn.adafruit.com/ir-sensor/using-an-ir-sensor) tutorial. The below patterns are normalized and truncated for use in the Trinket's code. For examples of raw flash patterns as observed, refer to ir-patterns.md.
+
 
 |           | J1      | J2      | J3      | J4      | J5      | Pattern                                                                                       |
 |-----------|---------|---------|---------|---------|---------|-----------------------------------------------------------------------------------------------|
