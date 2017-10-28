@@ -89,6 +89,32 @@ int DUOPOPsignalYellow[] = { // ON, OFF (in 10's of microseconds)
 50, 100, 
 50, 100};
 
+int DUOPOPsignalOrange[] = {
+  140,
+  100, 50,
+  50, 100,
+  50, 100,
+  50, 100,
+  100, 50,
+  50, 100,
+  50, 100,
+  50, 100,
+  50, 100
+};
+
+int DUOPOPsignalPink[] = {
+  140,
+  100, 58,
+  100, 54, 
+  100, 54, 
+  46, 100,
+  100, 48,
+  100, 56,
+  100, 54,
+  48, 100,
+  48, 100
+};
+
 int DUOPOPsignalGreen[] = { // ON, OFF (in 10's of microseconds) 
 140, 
 50, 100, 
@@ -178,6 +204,21 @@ void loop(void) {
       delayMs(500);
   
     }
+
+      if (IRcompare(numberpulses, DUOPOPsignalOrange)) {
+        TrinketKeyboard.pressKey(0, KEYCODE_6);
+        TrinketKeyboard.pressKey(0, 0);
+        digitalWrite(ledPin, HIGH);
+        delayMs(500);
+      }
+
+      if (IRcompare(numberpulses, DUOPOPsignalPink)) {
+        TrinketKeyboard.pressKey(0, KEYCODE_7);
+        TrinketKeyboard.pressKey(0, 0);
+        digitalWrite(ledPin, HIGH);
+        delayMs(500);
+      }
+      
      if (IRcompare(numberpulses, DUOPOPsignalGreen)) {
      // Serial.println("Green Buzzed In");
        TrinketKeyboard.pressKey(0, KEYCODE_4);
